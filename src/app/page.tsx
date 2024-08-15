@@ -1,5 +1,5 @@
 import { ThemeBtn } from "@/components/theme/theme-btn";
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 
 const Page = () => {
   return (
@@ -8,7 +8,7 @@ const Page = () => {
 
       <ThemeBtn />
     </div>
-  )
-}
+  );
+};
 
 export default Page;
