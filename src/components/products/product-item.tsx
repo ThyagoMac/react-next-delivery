@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { ToastAction } from "@/components/ui/toast";
+import { useCartStore } from "@/stores/cart-store";
 
 type Props = {
   product: ProductType;
@@ -10,14 +11,17 @@ type Props = {
 
 export const ProductItem = ({ product }: Props) => {
   const { toast } = useToast();
+  const { upsertCartItem } = useCartStore((state) => state);
+
   const handleAddButton = () => {
-    console.log("pipi");
+    upsertCartItem(product, 1);
     toast({
       title: "Added to cart",
       description: product.name,
       action: <ToastAction altText="close">Close</ToastAction>,
     });
   };
+
   return (
     <div>
       <div className="rounded-md overflow-hidden">
