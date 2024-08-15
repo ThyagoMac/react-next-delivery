@@ -1,6 +1,11 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+/* import { ProductType } from "@/types/ProductType";
+import { getAllProducts } from "@/services/ProductService"; */
 
-export const ProductsTab = () => {
+export const ProductsTab = async () => {
+  /*   const products: Promise<ProductType[]> = await getAllProducts;
+  console.log('pipiproducts: ' products) */
+
   return (
     <Tabs defaultValue="tab1">
       <TabsList className="flex">
