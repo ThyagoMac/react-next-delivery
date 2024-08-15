@@ -1,12 +1,12 @@
-import { ThemeBtn } from "@/components/theme/theme-btn";
-import { Button } from "@/components/ui/button";
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
 
 const Page = () => {
   return (
-    <div>
-      <Button>Pipi bnt</Button>
-
-      <ThemeBtn />
+    <div className="w-full max-w-4xl mx-auto">
+      <Header />
+      <div className="mx-3">pag</div>
+      <Footer />
     </div>
   );
 };
