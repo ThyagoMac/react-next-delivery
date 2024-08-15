@@ -1,13 +1,5 @@
-import { ProductType } from "@/types/ProductType";
+import api from "@/services/api";
 
-export const getAllProducts = async (): Promise<ProductType[]> => {
-  return [
-    {
-      id: 1,
-      category: "sushi",
-      name: "Sushi 1",
-      image: "/images/sushi/sushi1.png",
-      price: 49,
-    },
-  ];
+export const getAllProducts = async () => {
+  return await api.get("/products");
 };
