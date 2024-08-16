@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Dialog,
   DialogContent,
@@ -5,6 +7,9 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Progress } from "@/components/ui/progress";
+import { useState } from "react";
+
+type StepsType = "user" | "address" | "finish";
 
 type Props = {
   open: boolean;
@@ -12,6 +17,7 @@ type Props = {
 };
 
 export const CheckoutDialog = ({ open, onOpenChange }: Props) => {
+  const [step, setStep] = useState<StepsType>("user");
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent>

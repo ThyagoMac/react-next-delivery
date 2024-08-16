@@ -1,9 +1,9 @@
-import { Cart } from "@/types/Cart";
+import { CartType } from "@/types/CartType";
 import Image from "next/image";
 import { CartItemQuantity } from "./cart-item-quantity";
 
 type Props = {
-  item: Cart;
+  item: CartType;
 };
 
 export const CartItem = ({ item }: Props) => {

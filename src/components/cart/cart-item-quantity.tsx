@@ -1,10 +1,10 @@
 import { useCartStore } from "@/stores/cart-store";
-import { Cart } from "@/types/Cart";
+import { CartType } from "@/types/CartType";
 import { Button } from "@/components/ui/button";
 import { MinusIcon, PlusIcon } from "lucide-react";
 
 type Props = {
-  cartItem: Cart;
+  cartItem: CartType;
 };
 
 export const CartItemQuantity = ({ cartItem }: Props) => {
