@@ -2,7 +2,7 @@ import { Cart } from "@/types/Cart";
 import { ProductType } from "@/types/ProductType";
 import { create } from "zustand";
 
-type States = {
+type StatesType = {
   cart: Cart[];
 };
 
@@ -10,11 +10,11 @@ type Actions = {
   upsertCartItem: (product: ProductType, quantity: number) => void;
 };
 
-const initialStates: States = {
+const initialStates: StatesType = {
   cart: [],
 };
 
-export const useCartStore = create<States & Actions>()((set) => ({
+export const useCartStore = create<StatesType & Actions>()((set) => ({
   ...initialStates,
   upsertCartItem: (product, quantity) =>
     set((state) => {
