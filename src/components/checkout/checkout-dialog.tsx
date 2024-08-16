@@ -8,11 +8,10 @@ import {
 } from "@/components/ui/dialog";
 import { Progress } from "@/components/ui/progress";
 import { useState } from "react";
-import { CheckoutStepUser } from "./checkout-step-user";
-import { CheckoutStepAddress } from "./checkout-step-address";
-import { CheckoutStepFinish } from "./checkout-step-finish";
-
-type StepsType = "user" | "address" | "finish";
+import { CheckoutStepUser } from "@/components/checkout/checkout-step-user";
+import { CheckoutStepAddress } from "@/components/checkout/checkout-step-address";
+import { CheckoutStepFinish } from "@/components/checkout/checkout-step-finish";
+import { StepsType } from "@/types/StepsType";
 
 type Props = {
   open: boolean;
@@ -37,7 +36,7 @@ export const CheckoutDialog = ({ open, onOpenChange }: Props) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent>
+      <DialogContent aria-describedby={undefined}>
         <DialogHeader>
           <DialogTitle>
             {step === "user" && "Fill in your details "}

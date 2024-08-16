@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { useCartStore } from "@/stores/cart-store";
-import { CartItem } from "./cart-item";
+import { CartItem } from "@/components/cart/cart-item";
 import { useState } from "react";
 import { CheckoutDialog } from "@/components/checkout/checkout-dialog";
 
@@ -40,9 +40,9 @@ export const CartSideBar = () => {
           )}
         </Button>
       </SheetTrigger>
-      <SheetContent aria-describedby={undefined}>
+      <SheetContent aria-describedby={undefined} className="overflow-auto">
         <SheetHeader>
-          <SheetTitle>Cart</SheetTitle>
+          <SheetTitle>Cart Summary</SheetTitle>
         </SheetHeader>
         <div className="flex flex-col gap-5 my-3">
           {cart.map((item) => (

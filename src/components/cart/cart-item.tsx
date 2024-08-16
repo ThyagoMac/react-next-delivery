@@ -1,6 +1,6 @@
 import { CartType } from "@/types/CartType";
 import Image from "next/image";
-import { CartItemQuantity } from "./cart-item-quantity";
+import { CartItemQuantity } from "@/components/cart/cart-item-quantity";
 
 type Props = {
   item: CartType;
@@ -15,7 +15,7 @@ export const CartItem = ({ item }: Props) => {
           height={48}
           src={item.product.image}
           alt={item.product.name}
-          className="w-full h-auto object-cover"
+          className="w-16 h-12 object-cover"
         />
       </div>
       <div className="flex-1">
