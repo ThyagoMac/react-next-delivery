@@ -12,11 +12,13 @@ import { ShoppingCart } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { useCartStore } from "@/stores/cart-store";
 import { CartItem } from "./cart-item";
+import { useState } from "react";
+import { CheckoutDialog } from "@/components/checkout/checkout-dialog";
 
 export const CartSideBar = () => {
-  const { cart } = useCartStore((state) => {
-    return state;
-  });
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+  const { cart } = useCartStore((state) => state);
+
   let subtotal = 0;
   let quantity = 0;
 
@@ -38,30 +40,38 @@ export const CartSideBar = () => {
           )}
         </Button>
       </SheetTrigger>
-      <SheetContent>
-        <SheetContent>
-          <SheetHeader>
-            <SheetTitle>Carrinho</SheetTitle>
-          </SheetHeader>
-          <div className="flex flex-col gap-5 my-3">
-            {cart.map((item) => (
-              <CartItem key={item.product.id} item={item} />
-            ))}
-          </div>
+      <SheetContent aria-describedby={undefined}>
+        <SheetHeader>
+          <SheetTitle>Cart</SheetTitle>
+        </SheetHeader>
+        <div className="flex flex-col gap-5 my-3">
+          {cart.map((item) => (
+            <CartItem key={item.product.id} item={item} />
+          ))}
+        </div>
 
-          <Separator className="my-4" />
+        <Separator className="my-4" />
 
-          <div className="flex justify-between items-center text-xs">
-            <div>Subtotal: </div>
-            <div>$ {subtotal.toFixed(2)}</div>
-          </div>
+        <div className="flex justify-between items-center text-xs">
+          <div>Subtotal: </div>
+          <div>$ {subtotal.toFixed(2)}</div>
+        </div>
 
-          <Separator className="my-4" />
+        <Separator className="my-4" />
 
-          <div className="text-center">
-            <Button disabled={cart.length === 0}>Continue</Button>
-          </div>
-        </SheetContent>
+        <div className="text-center">
+          <Button
+            disabled={cart.length === 0}
+            onClick={() => setIsCheckoutOpen(true)}
+          >
+            Continue
+          </Button>
+        </div>
+
+        <CheckoutDialog
+          open={isCheckoutOpen}
+          onOpenChange={setIsCheckoutOpen}
+        />
       </SheetContent>
     </Sheet>
   );
