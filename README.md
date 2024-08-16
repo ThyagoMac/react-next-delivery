@@ -4,11 +4,25 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 First, run the json-server (simulate back-end):
 
+install json-server if you don't have it
+
+```bash
+npm i json-server
+```
+
+run json-server
+
 ```bash
 npm run server
 ```
 
 Second, run the development server:
+
+install dependences
+
+```bash
+npm install
+```
 
 ```bash
 npm run dev
